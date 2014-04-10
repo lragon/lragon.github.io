@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .bundle
 .DS_Store
 .sass-cache
@@ -11,3 +12,15 @@ source/_stash
 source/stylesheets/screen.css
 vendor
 node_modules
+=======
+_site/*
+_theme_packages/*
+
+Thumbs.db
+.DS_Store
+
+!.gitkeep
+
+.rbenv-version
+.rvmrc
+>>>>>>> dfbd64c10e8eb812aefc7108f9b91ff2dec80723
