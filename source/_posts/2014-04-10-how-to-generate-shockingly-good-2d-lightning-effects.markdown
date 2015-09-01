@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "如果制作牛逼的闪电特效2d"
+title: "译:如何制作牛逼的闪电特效2d"
 date: 2014-04-13 22:33:23 +0800
 comments: true
 categories: 
