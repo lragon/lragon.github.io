@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="译:如何制作牛逼的闪电特效2d"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Hexo">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2014/04/13/2014-04-10-how-to-generate-shockingly-good-2d-lightning-effects/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 译:如何制作牛逼的闪电特效2d - Hexo </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Hexo</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Hexo</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          译:如何制作牛逼的闪电特效2d
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2014-04-13
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-画一个发光的线条"><span class="toc-text">1.画一个发光的线条</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-锯齿型的线条"><span class="toc-text">2.锯齿型的线条</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-动画"><span class="toc-text">3.动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-闪电分支"><span class="toc-text">4.闪电分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-闪电文字"><span class="toc-text">5.闪电文字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-优化"><span class="toc-text">6.优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-其他变种"><span class="toc-text">7.其他变种</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#移动的闪电"><span class="toc-text">移动的闪电</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#平滑的闪电"><span class="toc-text">平滑的闪电</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>这是我第一次翻译教程，翻译不好的地方请见谅，观看视频需备梯子。在此<strong>声明</strong>，此翻译原稿来自于互联网，供学习交流之用，请勿进行商业传播。同时，转载时不要移除本声明。如产生任何纠纷，与本博客所有人、发表该翻译稿之人无任何关系。谢谢合作！</p>
+<p>翻译:ryan li</p>
+<p>原文地址：<a href="http://gamedevelopment.tutsplus.com/tutorials/how-to-generate-shockingly-good-2d-lightning-effects--gamedev-2681" target="_blank" rel="noopener">http://gamedevelopment.tutsplus.com/tutorials/how-to-generate-shockingly-good-2d-lightning-effects&mdash;gamedev-2681</a></p>
+<p>闪电特效在游戏中有很大的用处，从烘托暴风雨的背景气氛到魔法师的闪电攻击。这篇教程里，作者会说明如何用程序生成很酷的2d闪电效果（2D lightning effects）:闪电链(bolts)，分支（branches）,甚至文字（text）</p>
+<a id="more"></a>
+<blockquote>
+<p><strong>注意</strong>：此教程虽是用c#和XNA写的，但是读者应该能把这里的技术和观念用到任何游戏开发环境中。</p>
+</blockquote>
+<p>最终效果</p>
+<iframe width="560" height="315" src="//www.youtube.com/embed/FmLs8_-RHQA" frameborder="0" allowfullscreen></iframe>
+
+<h3 id="1-画一个发光的线条"><a href="#1-画一个发光的线条" class="headerlink" title="1.画一个发光的线条"></a>1.画一个发光的线条</h3><p>组成闪电的基本结构是一条线段。先打开你擅长的绘画软件，画一小段笔直的闪电。这是作者画的样子</p>
+<p><img src="https://cdn.tutsplus.com/gamedev/authors/legacy/Michael%20Hoffman/2012/11/24/Line%20Segment%20Example.png" alt="image"></p>
+<p>我们想要画不同的长度，所以要把这一小段闪电像下面这样截成三段。这样就能把中间的部分伸缩成任意想要的长度。因为中间的部分会被伸缩，所以截成1像素宽就行了。左右两边其实是一对镜像图片，保存一张就够了，我们可以用代码翻转它来表示另一张，这样一共就有中间部分和半圆两张图片。</p>
+<p><img src="https://cdn.tutsplus.com/gamedev/authors/legacy/Michael%20Hoffman/2012/11/24/Divided%20Line%20Segment%20Example.png" alt="image"></p>
+<p>现在我们声明一个类来处理线段：</p>
+<pre><code>public class Line
+{
+    public Vector2 A;
+    public Vector2 B;
+    public float Thickness;
+
+    public Line() {}
+    public Line(Vector2 a, Vector2 b, float thickness = 1)
+    {
+        A = a;
+        B = b;
+        Thickness = thickness;
+    }
+}
+</code></pre><p>A和B是线段的端点。通过缩放和旋转每条线段，我们能画出任何宽度，长度和旋转的线。然后给<code>Line</code>添加<code>Draw()</code>函数:</p>
+<pre><code>public void Draw(SpriteBatch spriteBatch, Color color)
+{
+    Vector2 tangent = B - A;
+    float rotation = (float)Math.Atan2(tangent.Y, tangent.X);
+
+    const float ImageThickness = 8;
+    float thicknessScale = Thickness / ImageThickness;
+
+    Vector2 capOrigin = new Vector2(Art.HalfCircle.Width, Art.HalfCircle.Height / 2f);
+    Vector2 middleOrigin = new Vector2(0, Art.LightningSegment.Height / 2f);
+    Vector2 middleScale = new Vector2(tangent.Length(), thicknessScale);
+
+    spriteBatch.Draw(Art.LightningSegment, A, null, color, rotation, middleOrigin, middleScale, SpriteEffects.None, 0f);
+    spriteBatch.Draw(Art.HalfCircle, A, null, color, rotation, capOrigin, thicknessScale, SpriteEffects.None, 0f);
+    spriteBatch.Draw(Art.HalfCircle, B, null, color, rotation + MathHelper.Pi, capOrigin, thicknessScale, SpriteEffects.None, 0f);
+}
+</code></pre><p>这里的<code>Art.LightningSegment</code>和<code>Art.HalfCircle</code>是静态<code>Texture2D</code>变量，分别是之前截出来那两张图片的中间部分和半圆。<code>ImageThickness</code>用来指定不发光部分的线段宽度，作者上面的图片是8像素。这里要把半圆和中间部分的位置计算好，好让它们无缝连起来。</p>
+<p>XNA的<code>SpriteBatch</code>类的构造方法有一个<code>SpriteSortMode</code>参数，该参数表示绘制顺序为纹理模式(译者不懂XNA，这里是自己猜的)。画线段的时候，要确保传过来的<code>SpriteBatch</code>的<code>SpriteSortMode</code>是设置成<code>SpriteSortMode.Texture</code>的。这有助于提升程序的性能。</p>
+<p>显卡很擅长重复绘制同一纹理，但是切换纹理有一定的开销，如果不设置绘制顺序，可能实际是这样绘制的：</p>
+<p>LightningSegment, HalfCircle, HalfCircle, LightningSegment, HalfCircle, HalfCircle, &hellip;</p>
+<p>这意味着绘制一条线段需要切换两次纹理，<code>SpriteSortMode.Texture</code>告诉<code>SpriteBatch</code>调用<code>Draw()</code>的时候要排序，这样所有的<code>LightningSegments</code>会被一起绘制，所有的<code>HalfCircles</code>也会被一起绘制。此外，我们用上面的代码来绘制闪电时，可以使用叠加混合模式让闪电重叠部分的光开起来更亮。</p>
+<pre><code>SpriteBatch.Begin(SpriteSortMode.Texture, BlendState.Additive);
+// draw lines
+SpriteBatch.End();
+</code></pre><h3 id="2-锯齿型的线条"><a href="#2-锯齿型的线条" class="headerlink" title="2.锯齿型的线条"></a>2.锯齿型的线条</h3><p>闪电一般会形成锯齿形的线条，所以我们需要算法来产生它。具体的方法是在一条线段上选出一些点，这些点将会被随机放置到一定距离内的另一个位置，然后将这些点连起来。我们可以控制点的数量和随机距离的范围，来调节产生的效果。</p>
+<p><img src="https://cdn.tutsplus.com/gamedev/authors/legacy/Michael%20Hoffman/2012/11/24/Making%20Jagged%20Lines.png" alt="image"></p>
+<p>这条线段做了平滑处理，使用上一个点稍微偏移的位置作为下一个点的位置，这能让线条整体有些起伏，看上去稍微平滑一些，不会那么的崎岖（找不到更好的词了）。代码如下所示：</p>
+<pre><code>protected static List&amp;lt;Line&amp;gt; CreateBolt(Vector2 source, Vector2 dest, float thickness)
+{
+    var results = new List&amp;lt;Line&amp;gt;();
+    Vector2 tangent = dest - source;
+    Vector2 normal = Vector2.Normalize(new Vector2(tangent.Y, -tangent.X));
+    float length = tangent.Length();
+
+    List&amp;lt;float&amp;gt; positions = new List&amp;lt;float&amp;gt;();
+    positions.Add(0);
+
+    for (int i = 0; i &amp;lt; length / 4; i++)
+        positions.Add(Rand(0, 1));
+
+    positions.Sort();
+
+    const float Sway = 80;
+    const float Jaggedness = 1 / Sway;
+
+    Vector2 prevPoint = source;
+    float prevDisplacement = 0;
+    for (int i = 1; i &amp;lt; positions.Count; i++)
+    {
+        float pos = positions[i];
+
+        // used to prevent sharp angles by ensuring very close positions also have small perpendicular variation.
+        float scale = (length * Jaggedness) * (pos - positions[i - 1]);
+
+        // defines an envelope. Points near the middle of the bolt can be further from the central line.
+        float envelope = pos &amp;gt; 0.95f ? 20 * (1 - pos) : 1;
+
+        float displacement = Rand(-Sway, Sway);
+        displacement -= (displacement - prevDisplacement) * (1 - scale);
+        displacement *= envelope;
+
+        Vector2 point = source + pos * tangent + displacement * normal;
+        results.Add(new Line(prevPoint, point, thickness));
+        prevPoint = point;
+        prevDisplacement = displacement;
+    }
+
+    results.Add(new Line(prevPoint, dest, thickness));
+
+    return results;
+}
+</code></pre><p>这些代码可能有点吓人，但是当你明白它的逻辑之后会发现没那么糟糕。首先计算出线段的法向量(normal vector)和切向量(tangent vector)，以及长度。然后在这条线段上随机取一些点保存到<code>positions</code>中，这些<code>positions</code>的范围在<code>0</code>到<code>1</code>之间，<code>0</code>表示起点，<code>1</code>表示终点。接下来对<code>positions</code>排序方便下面使用。</p>
+<p>循环上面随机出来点，随机重置它们的位置。<code>scale</code>是为了避免产生太尖锐的角度，<code>envelope</code>会让线段中间的点偏离更大，靠近两端的点偏离更小。</p>
+<p><img src="https://cdn.tutsplus.com/gamedev/authors/legacy/Michael%20Hoffman/2012/11/25/Lightning%20Bolt.jpg" alt="image"></p>
+<h3 id="3-动画"><a href="#3-动画" class="headerlink" title="3.动画"></a>3.动画</h3><p>闪电会放出耀眼的光然后淡出，为了实现这个，我们创建一个<code>LightningBolt</code>类</p>
+<pre><code>class LightningBolt
+{
+    public List&amp;lt;Line&amp;gt; Segments = new List&amp;lt;Line&amp;gt;();
+
+    public float Alpha { get; set; }
+    public float FadeOutRate { get; set; }
+    public Color Tint { get; set; }
+
+    public bool IsComplete { get { return Alpha &amp;lt;= 0; } }
+
+    public LightningBolt(Vector2 source, Vector2 dest) : this(source, dest, new Color(0.9f, 0.8f, 1f)) { }
+
+    public LightningBolt(Vector2 source, Vector2 dest, Color color)
+    {
+        Segments = CreateBolt(source, dest, 2);
+
+        Tint = color;
+        Alpha = 1f;
+        FadeOutRate = 0.03f;
+    }
+
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        if (Alpha &amp;lt;= 0)
+            return;
+
+        foreach (var segment in Segments)
+            segment.Draw(spriteBatch, Tint * (Alpha * 0.6f));
+    }
+
+    public virtual void Update()
+    {
+        Alpha -= FadeOutRate;
+    }
+
+    protected static List&amp;lt;Line&amp;gt; CreateBolt(Vector2 source, Vector2 dest, float thickness)
+    {
+        // ...
+    }
+
+    // ...
+}
+</code></pre><p>用法是先创建一个<code>LightningBolt</code>然后在每帧调用<code>Update()</code>和<code>Draw()</code>方法，<code>Update()</code>的作用是淡出，<code>IsComplete</code>会告诉你闪电是否完全淡出了。</p>
+<p>现在你能在游戏中使用下面的代码来画一个闪电了！</p>
+<pre><code>LightningBolt bolt;
+MouseState mouseState, lastMouseState;
+
+protected override void Update(GameTime gameTime)
+{
+    lastMouseState = mouseState;
+    mouseState = Mouse.GetState();
+
+    var screenSize = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+    var mousePosition = new Vector2(mouseState.X, mouseState.Y);
+
+    if (MouseWasClicked())
+        bolt = new LightningBolt(screenSize / 2, mousePosition);
+
+    if (bolt != null)
+        bolt.Update();
+}
+
+private bool MouseWasClicked()
+{
+    return mouseState.LeftButton == ButtonState.Pressed &amp;amp;&amp;amp; lastMouseState.LeftButton == ButtonState.Released;
+}
+
+protected override void Draw(GameTime gameTime)
+{
+    GraphicsDevice.Clear(Color.Black);
+
+    spriteBatch.Begin(SpriteSortMode.Texture, BlendState.Additive);
+
+    if (bolt != null)
+        bolt.Draw(spriteBatch);
+
+    spriteBatch.End();
+}
+</code></pre><h3 id="4-闪电分支"><a href="#4-闪电分支" class="headerlink" title="4.闪电分支"></a>4.闪电分支</h3><p>你可以用<code>LightningBolt</code>类为基础产生更多有趣的闪电效果，举个例子，可以给闪电加一些分支，如下图：</p>
+<p><img src="https://cdn.tutsplus.com/gamedev/authors/legacy/Michael%20Hoffman/2012/11/25/Branch%20Lightning.jpg" alt="image"></p>
+<p>为了生成分支，我们在原来的闪电链上随机选一些点在这些点上添加新的闪电链，下面的代码中，我们从主链上创建了三到六个30度的分支。</p>
+<pre><code>class BranchLightning
+{
+    List&amp;lt;LightningBolt&amp;gt; bolts = new List&amp;lt;LightningBolt&amp;gt;();
+
+    public bool IsComplete { get { return bolts.Count == 0; } }
+    public Vector2 End { get; private set; }
+    private Vector2 direction;
+
+    static Random rand = new Random();
+
+    public BranchLightning(Vector2 start, Vector2 end)
+    {
+        End = end;
+        direction = Vector2.Normalize(end - start);
+        Create(start, end);
+    }
+
+    public void Update()
+    {
+        bolts = bolts.Where(x =&amp;gt; !x.IsComplete).ToList();
+        foreach (var bolt in bolts)
+            bolt.Update();
+    }
+
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        foreach (var bolt in bolts)
+            bolt.Draw(spriteBatch);
+    }
+
+    private void Create(Vector2 start, Vector2 end)
+    {
+        var mainBolt = new LightningBolt(start, end);
+        bolts.Add(mainBolt);
+
+        int numBranches = rand.Next(3, 6);
+        Vector2 diff = end - start;
+
+        // pick a bunch of random points between 0 and 1 and sort them
+        float[] branchPoints = Enumerable.Range(0, numBranches)
+            .Select(x =&amp;gt; Rand(0, 1f))
+            .OrderBy(x =&amp;gt; x).ToArray();
+
+        for (int i = 0; i &amp;lt; branchPoints.Length; i++)
+        {
+            // Bolt.GetPoint() gets the position of the lightning bolt at specified fraction (0 = start of bolt, 1 = end)
+            Vector2 boltStart = mainBolt.GetPoint(branchPoints[i]);
+
+            // rotate 30 degrees. Alternate between rotating left and right.
+            Quaternion rot = Quaternion.CreateFromAxisAngle(Vector3.UnitZ, MathHelper.ToRadians(30 * ((i &amp;amp; 1) == 0 ? 1 : -1)));
+            Vector2 boltEnd = Vector2.Transform(diff * (1 - branchPoints[i]), rot) + boltStart;
+            bolts.Add(new LightningBolt(boltStart, boltEnd));
+        }
+    }
+
+    static float Rand(float min, float max)
+    {
+        return (float)rand.NextDouble() * (max - min) + min;
+    }
+}
+</code></pre><h3 id="5-闪电文字"><a href="#5-闪电文字" class="headerlink" title="5.闪电文字"></a>5.闪电文字</h3><p>下面的视频是创造出的另一种效果</p>
+<iframe width="560" height="315" src="//www.youtube.com/embed/JcG1tVTRsBc" frameborder="0" allowfullscreen></iframe>
+
+<p>首先我们需要得到文字的像素数据，我们可以把文字绘制到<code>RenderTarget2D</code>，使用<code>RenderTarget2D.GetData&amp;lt;T&amp;gt;()</code>读取像素数据。如果你想了解更多的文字粒子特效，作者<a href="http://nullcandy.com/particle-text-in-xna-and-javascript/" target="_blank" rel="noopener">这里有一篇</a>更详细的教程。</p>
+<p>我们把文字的像素坐标点存储成<code>List&amp;lt;Vector2&amp;gt;</code>，然后在每一帧里，在这些点中随机选一对点创建闪电链。我们想这样设计它，两个点越接近，越有机会产生一个闪电链。有一个小技巧来实现它：我们先随机选择一个点作为起点，然后在一些固定数量的随机点中选一个最接近的作为终点。</p>
+<p>候选点的数量会影响最终的效果；使用较大的数更容易找到更近的点，这样文字会显得整齐清晰，但是字符之间的长闪电链会很少。使用小一点的数会使文字看上去很夸张而且不清晰。</p>
+<pre><code>public void Update()
+{
+    foreach (var particle in textParticles)
+    {
+        float x = particle.X / 500f;
+        if (rand.Next(50) == 0)
+        {
+            Vector2 nearestParticle = Vector2.Zero;
+            float nearestDist = float.MaxValue;
+            for (int i = 0; i &amp;lt; 50; i++)
+            {
+                var other = textParticles[rand.Next(textParticles.Count)];
+                var dist = Vector2.DistanceSquared(particle, other);
+
+                if (dist &amp;lt; nearestDist &amp;amp;&amp;amp; dist &amp;gt; 10 * 10)
+                {
+                    nearestDist = dist;
+                    nearestParticle = other;
+                }
+            }
+
+            if (nearestDist &amp;lt; 200 * 200 &amp;amp;&amp;amp; nearestDist &amp;gt; 10 * 10)
+                bolts.Add(new LightningBolt(particle, nearestParticle, Color.White));
+        }
+    }
+
+    for (int i = bolts.Count - 1; i &amp;gt;= 0; i--)
+    {
+        bolts[i].Update();
+
+        if (bolts[i].IsComplete)
+            bolts.RemoveAt(i);
+    }
+}
+</code></pre><h3 id="6-优化"><a href="#6-优化" class="headerlink" title="6.优化"></a>6.优化</h3><p>上面的闪电文字可能会很平滑的运行，如果你有台配置较好的电脑的话，但是会相当吃力。每条闪电链持续30帧，每帧都会创建许多闪电链。每条闪电链可能有上百条小段，每条小段有三小块，绘制这么多精灵有点吃不消。我的例子中每帧绘制了25,000多个图片，这是没优化的情况，经过优化会好很多。</p>
+<p>之前是一直绘制每一条闪电链直到它们消失，现在我们在每帧都创建新的闪电链并且这一帧结束时让它消失，这意味着不会再把一条闪电链绘制30或者更多帧了，现在只绘制一帧，这样就没有闪电链逐渐淡出或者持续更长时间的开销了。</p>
+<p>首先，我们修改<code>LightningText</code>类让它把每条闪电链只绘制一帧，在你的游戏代码中，声明两个<code>RenderTarget2D</code>变量：<code>currentFrame</code>和<code>lastFrame</code>，在<code>LoadContent()</code>中，这样初始化它们：</p>
+<pre><code>lastFrame    = new RenderTarget2D(GraphicsDevice, screenSize.X, screenSize.Y, false, SurfaceFormat.HdrBlendable, DepthFormat.None);
+currentFrame = new RenderTarget2D(GraphicsDevice, screenSize.X, screenSize.Y, false, SurfaceFormat.HdrBlendable, DepthFormat.None);
+</code></pre><p>注意外观格式(surface format)设置成<code>HdrBlendable</code>，HDR代表<a href="http://en.wikipedia.org/wiki/High_dynamic_range_imaging" target="_blank" rel="noopener">High Dynamic Range</a>，它表示我们的HDR外观能表现更多范围的颜色。这是有必要的，因为它允许渲染目标有比白色更明亮的颜色。当多个闪电链重叠时我们需要渲染目标能存储它们颜色叠加后的值，这可能超过标准的颜色范围。当然这些比白色更亮的颜色在屏幕上仍然会显示成白色，但是存储他们的亮度才能正确的淡出它们。</p>
+<blockquote>
+<p>XNA提示：为了启用HDR混合模式，必须把XNA工程设置成Hi-Def，在解决方案资源管理器中右键点击工程，选择属性(properties)，然后在XNA工作室(XNA Game Studio)标签下选择hi-def。</p>
+</blockquote>
+<p>每一帧，我们先把上一帧的内容绘制到当前帧，幷让它稍微暗一些，再把新的闪电链添加到当前帧，最后把当前帧渲染到屏幕上，交换两个渲染目标为下一帧做准备，<code>lastFrame</code>会指向刚刚渲染的那帧。</p>
+<pre><code>void DrawLightningText()
+{
+    GraphicsDevice.SetRenderTarget(currentFrame);
+    GraphicsDevice.Clear(Color.Black);
+
+    // draw the last frame at 96% brightness
+    spriteBatch.Begin(0, BlendState.Opaque, SamplerState.PointClamp, null, null);
+    spriteBatch.Draw(lastFrame, Vector2.Zero, Color.White * 0.96f);
+    spriteBatch.End();
+
+    // draw new bolts with additive blending
+    spriteBatch.Begin(SpriteSortMode.Texture, BlendState.Additive);
+    lightningText.Draw();
+    spriteBatch.End();
+
+    // draw the whole thing to the backbuffer
+    GraphicsDevice.SetRenderTarget(null);
+    spriteBatch.Begin(0, BlendState.Opaque, SamplerState.PointClamp, null, null);
+    spriteBatch.Draw(currentFrame, Vector2.Zero, Color.White);
+    spriteBatch.End();
+
+    Swap(ref currentFrame, ref lastFrame);
+}
+
+void Swap&amp;lt;T&amp;gt;(ref T a, ref T b)
+{
+    T temp = a;
+    a = b;
+    b = temp;
+}
+</code></pre><h3 id="7-其他变种"><a href="#7-其他变种" class="headerlink" title="7.其他变种"></a>7.其他变种</h3><p>我们已经讨论了闪电分支和闪电文字，但是我们并不会止步于此，来看看一些你可能用到的其他变种。</p>
+<h4 id="移动的闪电"><a href="#移动的闪电" class="headerlink" title="移动的闪电"></a>移动的闪电</h4><p>有时你会想要闪电链移动，可以这样做，在上一帧的闪电链的末端创建一个新的闪电链</p>
+<pre><code>Vector2 lightningEnd = new Vector2(100, 100);
+Vector2 lightningVelocity = new Vector2(50, 0);
+
+void Update(GameTime gameTime)
+{
+    Bolts.Add(new LightningBolt(lightningEnd, lightningEnd + lightningVelocity));
+    lightningEnd += lightningVelocity;
+
+    // ...
+}
+</code></pre><h4 id="平滑的闪电"><a href="#平滑的闪电" class="headerlink" title="平滑的闪电"></a>平滑的闪电</h4><p>你可能知道在闪电节点处的光更强一些，这取决于叠加混合模式，你可能想让你的闪电看上去再平滑一些。可以用下面的方法把混合状态函数改成源颜色和目标颜色都最大。</p>
+<pre><code>private static readonly BlendState maxBlend = new BlendState()
+{
+        AlphaBlendFunction = BlendFunction.Max,
+        ColorBlendFunction = BlendFunction.Max,
+        AlphaDestinationBlend = Blend.One,
+        AlphaSourceBlend = Blend.One,
+        ColorDestinationBlend = Blend.One,
+        ColorSourceBlend = Blend.One
+};
+</code></pre><p>然后在<code>Draw()</code>方法中调用<code>SpriteBatch.Begin()</code>时，把<code>BlendState</code>参数由原来的<code>BlendState.Additive</code>替换为<code>maxBlend</code>。下面两张图片显示了叠加混合模式(additive blending)和最大混合模式(max blending)的区别。</p>
+<p><img src="https://cdn.tutsplus.com/gamedev/authors/legacy/Michael%20Hoffman/2012/11/24/Additive%20blending.jpg" alt="image"></p>
+<p><img src="https://cdn.tutsplus.com/gamedev/authors/legacy/Michael%20Hoffman/2012/11/24/Max%20blending.jpg" alt="image"></p>
+<p>当然最大混合模式(max blending)不会让多个闪电链的光很好地叠加，如果你想让单个闪电链看上去更自然，并且更亮，你可以先用最大混合模式(max blending)把闪电链渲染到一个渲染目标，再把这个渲染目标使用叠加混合模式(additive blending)渲染到屏幕。注意不要使用太多像这样庞大的渲染目标，会有损性能。</p>
+<p>有另一个选择，在闪电链数量多时很有用，去掉图片自己的发光效果，添加到后处理(post-processing)中。着色器(shader)的使用和创建发光效果超出了本教程的范围，但是你可以从<a href="http://xbox.create.msdn.com/en-US/education/catalog/sample/bloom" target="_blank" rel="noopener">XNA Bloom Sample</a>来起步，这种技术可以在添加更多的闪电链时不需要同时添加渲染目标。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>用闪电点缀游戏有特别棒的效果，这篇教程描述的效果是个不错的开端，但并不是说只能用闪电做这些，只要发挥一点想象力，就能做出各种各样令人称赞的闪电效果！赶快<a href="http://cdn.tutsplus.com/gamedev/uploads/legacy/055_lightning/Shocking-2D-Lightning-Effects-Source.zip" target="_blank" rel="noopener">下载源代码</a>亲自试试吧。</p>
+<p>如果你觉得这篇教程不错，请看看作者的另一篇<a href="http://gamedev.tutsplus.com/tutorials/implementation/make-a-splash-with-2d-water-effects/" target="_blank" rel="noopener">关于2d水花效果的教程</a>。</p>
+<p>原文链接：<a href="http://gamedevelopment.tutsplus.com/tutorials/how-to-generate-shockingly-good-2d-lightning-effects--gamedev-2681" target="_blank" rel="noopener">http://gamedevelopment.tutsplus.com/tutorials/how-to-generate-shockingly-good-2d-lightning-effects&mdash;gamedev-2681</a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/03/14/docker-toolbox-issue/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Docker Toolbox无法访问容器服务</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:455840982@qq.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">John Doe</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2014/04/13/2014-04-10-how-to-generate-shockingly-good-2d-lightning-effects/';
+        this.page.identifier = '2014/04/13/2014-04-10-how-to-generate-shockingly-good-2d-lightning-effects/';
+        this.page.title = '译:如何制作牛逼的闪电特效2d';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ryan-li.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>
