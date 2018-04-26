@@ -17,6 +17,8 @@
 
 
 
+  <meta name="description" content="使用git快速部署php代码"/>
+
 
 
 
@@ -38,7 +40,7 @@
 
 
 
-<link rel="canonical" href="http://9tong.github.io/archives/2014/04/"/>
+<link rel="canonical" href="http://9tong.github.io/2018/04/16/setup-git-server-and-use-ssh-key/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -75,11 +77,7 @@
 
 
 
-    <title>
-  
-    归档 - Ryan Li的博客
-  
-</title>
+    <title> 使用git快速部署php代码 - Ryan Li的博客 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -155,55 +153,116 @@
           <div id="content" class="content">
             
   
-  <section id="archive" class="archive">
-    
-      
-        <div class="archive-title">
-          <span class="archive-post-counter">
-            目前共计 3 篇日志
-          </span>
-        </div>
-      
-    
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          使用git快速部署php代码
+        
+      </h1>
 
-    
-      
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year">2014</h2>
-          </div>
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            04-13
-          
+      <div class="post-meta">
+        <span class="post-time">
+          2018-04-16
         </span>
-        <span class="archive-post-title">
-          <a href="/2014/04/13/2014-04-10-how-to-generate-shockingly-good-2d-lightning-effects/" class="archive-post-link">
-            译:如何制作牛逼的闪电特效2d
-          </a>
-        </span>
+        
+        
       </div>
-    
-  </section>
+    </header>
 
-  
-  <nav class="pagination">
     
+    
+
+    <div class="post-content">
+      
+        <p>面对频繁更新的php文件，传统的ftp方式部署方式是不可能的，小团队搭建持续集成部署又太繁琐，直接用git部署方便多了。</p>
+<p>windows安装git就不说了，搭建git服务器也非常简单，推荐看<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000" target="_blank" rel="noopener">廖雪峰的搭建Git服务器</a>教程，按照教程做好之后，每次连接git服务器都要输入密码，很烦人，用ssh-key连接的话可以省去输密码，但是教程里面讲的不多，这里大概说一下步骤。</p>
+<a id="more"></a>
+<ul>
+<li>windows</li>
+</ul>
+<p>打开<code>gitbash</code>，执行</p>
+<pre><code>ssh-keygen
+</code></pre><p>一路回车，最后会生成一对密钥</p>
+<pre><code>Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa):
+/c/Users/Administrator/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/Administrator/.ssh/id_rsa.
+Your public key has been saved in /c/Users/Administrator/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:YT0lojTJd8HrbGLTaZHJcBqKhsiNDopVuEb6c+phP1s 
+The key&apos;s randomart image is:
++---[RSA 2048]----+
+|   . ...       |
+|  o ..oo+o+o     |
+|.+o+ ..ooBo+     |
+|+o=.o ....*.     |
+|=+ .    S+ o     |
+|o.o .   + B      |
+|  o+  E. =       |
+| ..o..           |
+| .. oo           |
++----[SHA256]-----+
+</code></pre><p>然后去这个目录<code>/c/Users/Administrator/.ssh/</code>，打开id_rsa.pub，这个是公钥，把里面的文本复制粘贴到服务器的<code>/home/git/.ssh/authorized_keys</code>文件末尾就可以了。</p>
+<ul>
+<li>Linux</li>
+</ul>
+<p>跟windows一样先执行<code>ssh-keygen</code>生成密钥，然后再执行</p>
+<pre><code>ssh-copy-id git@server
+</code></pre><p>把<code>server</code>换成你的服务器地址就ok了。</p>
+<p>ps:如果服务器没有<code>/home/git/.ssh/authorized_keys</code>这个文件的话可以自己创建一个，或者用<code>ssh-copy-id</code>的时候会自动生成。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/03/14/docker-toolbox-issue/">
+        <span class="next-text nav-default">Docker Toolbox无法访问容器服务</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
       </main>
@@ -283,6 +342,27 @@
     </div>
 
     
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://9tong.github.io/2018/04/16/setup-git-server-and-use-ssh-key/';
+        this.page.identifier = '2018/04/16/setup-git-server-and-use-ssh-key/';
+        this.page.title = '使用git快速部署php代码';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ryan-li.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
 
 
     
